@@ -1,17 +1,24 @@
 .present{
 
 	display:flex;
+	flex-wrap:wrap;
 }
 
 .r{
     border-radius: 3px;
 	border: 7px solid rgb(0, 0, 0);
+	margin-left: auto;
+    margin-right: auto;
 	
 }
 
 .controls{
 
 	border: 2px solid rgb(0, 0, 0);
+	margin-left: auto;
+    margin-right: auto;
+	margin-top:20px;
+	margin-bottom:20px;
 
 
 }
@@ -32,4 +39,8 @@ button{
 	height:150px;
 
 
+}
+
+.t{
+	display:inline;
 }

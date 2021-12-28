@@ -5,6 +5,11 @@ const c = document.getElementById("viewScreen");
 const ctx = c.getContext("2d");
 ctx.fillstyle= "green";
 
+//for when page is reloaded
+document.getElementById("warn").innerText=" ";
+document.querySelector('input[name="spac"]').value = "50";
+document.querySelector('input[name="spac"]').placeholder = "50";
+
 
 
 
