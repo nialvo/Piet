@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="eng-us">
+
+<head>
+
+    <meta charset ="UTF-8"/>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+</head> 
+
+<body>
+
+    <div class="present">
+
+        <canvas id="viewScreen" width="800" height="600" class = "r" ></canvas>
+
+        <div class ="controls">
+
+            <form>
+                <h3>Number of horizontal lines</h3>
+                <input type="radio" name="hor" value=1 id="1">
+                <label for="1">1</label>
+                <input type="radio" name="hor" value=2 id="2">
+                <label for="2">2</label>
+                <input type="radio" name="hor" value=3 id="3" checked>
+                <label for="3">3</label>
+                <input type="radio" name="hor" value=4 id="4">
+                <label for="4">4</label>
+                <input type="radio" name="hor" value=5 id="5">
+                <label for="5">5</label>
+                <input type="radio" name="hor" value=6 id="6">
+                <label for="6">6</label>
+                <input type="radio" name="hor" value=7 id="7">
+                <label for="7">7</label>
+                <input type="radio" name="hor" value=8 id="8">
+                <label for="8">8</label>
+                <input type="radio" name="hor" value=9 id="9">
+                <label for="9">9</label>
+                <input type="radio" name="hor" value=10 id="10">
+                <label for="10">10</label>
+                <input type="radio" name="hor" value=11 id="11">
+                <label for="11">11</label>
+                <input type="radio" name="hor" value=12 id="12">
+                <label for="12">12</label>          
+               
+            </form>
+
+            <form>
+                <h3>Number of vertical lines in excess of the minimum to cap the horizontal ones</h3>
+                <input type="radio" name="ver" value=0 id="0v" checked>
+                <label for="0v">0</label>
+                <input type="radio" name="ver" value=1 id="1v">
+                <label for="1v">1</label>
+                <input type="radio" name="ver" value=2 id="2v">
+                <label for="2v">2</label>
+                <input type="radio" name="ver" value=3 id="3v" >
+                <label for="3v">3</label>
+                <input type="radio" name="ver" value=4 id="4v">
+                <label for="4v">4</label>
+                <input type="radio" name="ver" value=5 id="5v" >
+                <label for="5v">5</label>
+                <input type="radio" name="ver" value=6 id="6v">
+                <label for="6v">6</label>
+                <input type="radio" name="ver" value=7 id="7v">
+                <label for="7v">7</label>
+                <input type="radio" name="ver" value=8 id="8v">
+                <label for="8v">8</label>
+                      
+               
+            </form>
+
+            <form>
+                <h3>Thickness of lines in pixels </h3>
+                <input type="radio" name="thic" value=1 id="1th">
+                <label for="1th">1</label>
+                <input type="radio" name="thic" value=2 id="2th">
+                <label for="2th">2</label>
+                <input type="radio" name="thic" value=3 id="3th" >
+                <label for="3th">3</label>
+                <input type="radio" name="thic" value=4 id="4th">
+                <label for="4th">4</label>
+                <input type="radio" name="thic" value=5 id="5th" >
+                <label for="5th">5</label>
+                <input type="radio" name="thic" value=6 id="6th">
+                <label for="6th">6</label>
+                <input type="radio" name="thic" value=7 id="7th" checked>
+                <label for="7th">7</label>
+                <input type="radio" name="thic" value=8 id="8th">
+                <label for="8th">8</label>
+                <input type="radio" name="thic" value=9 id="9th">
+                <label for="9th">9</label>
+                <input type="radio" name="thic" value=10 id="10th">
+                <label for="10th">10</label>
+                <input type="radio" name="thic" value=11 id="11th">
+                <label for="11th">11</label>
+                <input type="radio" name="thic" value=12 id="12th">
+                <label for="12th">12</label>
+                <input type="radio" name="thic" value=13 id="13th" >
+                <label for="13th">13</label>
+                <input type="radio" name="thic" value=14 id="14th">
+                <label for="14th">14</label>
+                <input type="radio" name="thic" value=15 id="15th" >
+                <label for="15th">15</label>
+                <input type="radio" name="thic" value=16 id="16th">
+                <label for="16th">16</label>
+                
+                      
+               
+            </form>
+
+            <form>
+                <h3>Minimum space between lines in pixels (0-200)</h3>
+                <input type="text" id="username" placeholder="50" value="50" name="spac"><br>
+
+                
+                      
+               
+            </form>
+
+            <div id="warn">
+
+
+            </div>
+
+
+
+
+            <button type="button" id="B" onclick="draw()">Click to make a Mondrian!</button>
+
+        </div>        
+        
+        
+    
+    </div>
+
+    <script src="./assets/js/javascript.js"></script>
+
+</body>
+
+
+
+
+</html>
