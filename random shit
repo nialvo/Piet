@@ -1,0 +1,21 @@
+ <div id="warn">
+
+                <form >
+                    <h3 class = "t">Minimum space between lines in pixels (0-200)</h3>
+                    <input class ="t" type="text" id="minimumSpace" placeholder="50" value="50" name="spac"  text-align="center">   
+               
+                </form>
+            </div>
+
+            <div id="warn2">
+
+                <form >
+                    <h3 class = "t">Number of colored squares (0-50)</h3>
+                    <input class ="t" type="text" id="numberColor" placeholder="3" value="3" name="colo"  text-align="center">
+    
+                    
+                          
+                   
+                </form>
+    
+            <div id="warn2">

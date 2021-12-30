@@ -10,8 +10,17 @@ document.getElementById("warn").innerText=" ";
 document.querySelector('input[name="spac"]').value = "50";
 document.querySelector('input[name="spac"]').placeholder = "50";
 
+document.getElementById("warn2").innerText=" ";
+document.querySelector('input[name="colo"]').value = "3";
+document.querySelector('input[name="colo"]').placeholder = "3";
 
 
+var nc;//number of colored squares
+var r;//random number holder
+var s; //random number holder
+var closest; //for closest edge    
+var colSqu = new Array();//colored square coordinates
+var colors = ["red", "blue", "yellow"];
 
 var lw;//line width in 10 pixels (must be multiple of .1)
 var ma; //min distance between lines in 10 pixels
@@ -25,6 +34,7 @@ var nhl;
 var extra; // number of vertical lines more than needed to cover naked horizontal endings
 var nvl;
 var mess =0; //message flag (not super elegant ok this is a work in progress)
+var mess2 =0; //message flag (not super elegant ok this is a work in progress)
 
 //breaker
 var b;
@@ -44,8 +54,9 @@ var ahr = 0;
 var nakedX1Y = new Array();
 var nakedX2Y = new Array();
 
-var posY = new Array();//possible y values for line enders
+var posY = new Array();//possible y values for line enders, also indices of intersecting lines for colors
 var dele = 0;//index of x=nakedX_Y to delete
+
 
 
 
@@ -69,6 +80,7 @@ function flip() {
 
 function drawHline(x1,x2,y,w){
 
+    
     ctx.fillRect(x1,y,Math.abs(x2-x1),w);
     
 
@@ -85,11 +97,18 @@ function drawVline(y1,y2,x,w){
 function draw(){
 
     ma = parseInt(document.querySelector('input[name="spac"]').value);
+    nc = parseInt(document.querySelector('input[name="colo"]').value);
 
     if(!(ma>=0&&ma<=200)){
 
         document.getElementById("warn").innerText="Please enter a whole number between 0 and 200 ";
         mess = 1;
+
+    }
+    else if(!(nc>=0&&nc<=50)){
+
+        document.getElementById("warn2").innerText="Please enter a whole number between 0 and 50 ";
+        mess2 = 1;
 
     }
     else{
@@ -100,6 +119,12 @@ function draw(){
         if(mess==1){
             document.getElementById("warn").innerText=" ";
             mess=0;
+
+        }
+
+        if(mess2==1){
+            document.getElementById("warn2").innerText=" ";
+            mess2=0;
 
         }
 
@@ -607,7 +632,98 @@ function draw(){
         
     }
 
+
+
+    
+
+
+
+
+    colSqu.length = nc;
+    for(let i=0; i<nc; i++){
+        colSqu[i]=new Array(4);
+    }
+    
+
+    for(let i=0; i<nc; i++){
+
+        //pick random vline[r]
+
+        r=ra(0,vlines.length);
+        colSqu[i][0]= vlines[r][2];////////////
+
+        //pick random intersecting hline
+
+        posY.length=0;
+
+        for(let j=0; j<hlines.length; j++){
+            if(hlines[j][2]<vlines[r][1]&&hlines[j][2]>=vlines[r][0]&&hlines[j][0]<=vlines[r][2]&&hlines[j][1]>vlines[r][2]){
+                posY.push(j);
+            }
+        }
+
+        if(posY.length==0){
+            colSqu[i][2]=0;
+        }else{
+
+            s=posY[ra(0,posY.length)];
+
+            colSqu[i][2]=hlines[s][2];////////////////////
+        }
+        
+
+        //find closest downwards hline....
+
+        closest=yM;
+
+
+        for(let j=0; j<hlines.length; j++){
+
+            if(hlines[j][2]>colSqu[i][2]&&hlines[j][2]<closest&&hlines[j][0]<=vlines[r][2]&&hlines[j][1]>vlines[r][2]){
+                closest=hlines[j][2];
+            }
+        }
+        colSqu[i][3]=closest;
+
+        //find closest rightwards vline
+
+        closest = xM;
+
+        for(let j=0; j<vlines.length; j++){
+
+            if(vlines[j][2]>vlines[r][2]&&vlines[j][2]<closest&&vlines[j][0]<=colSqu[i][2]&&vlines[j][1]>colSqu[i][2]){
+                closest=vlines[j][2];
+            }
+        }
+        colSqu[i][1]=closest;
+
+
+    
+
+
+
+
+    }
+
+    console.log(colSqu);
+
+    for(let i=0; i<nc; i++){
+        ctx.fillStyle=colors[ra(0,colors.length)];
+
+        ctx.fillRect(colSqu[i][0],colSqu[i][2],colSqu[i][1]-colSqu[i][0],colSqu[i][3]-colSqu[i][2]);
+
+
+    }
+
+    
+
+
+
+
+
+
     //console.log("x");
+    ctx.fillStyle = "black";
 
     for(let i =0; i<nvl; i++){
         //console.log("x");
@@ -623,11 +739,12 @@ function draw(){
     }
 
 }
+}
 
     
 
  
-}
+
 
 
 
