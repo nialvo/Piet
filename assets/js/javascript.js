@@ -20,7 +20,7 @@ var r;//random number holder
 var s; //random number holder
 var closest; //for closest edge    
 var colSqu = new Array();//colored square coordinates
-var colors = ["red", "blue", "yellow"];
+var colors = ["red", "blue", "yellow", "grey", "black"];
 
 var lw;//line width in 10 pixels (must be multiple of .1)
 var ma; //min distance between lines in 10 pixels
